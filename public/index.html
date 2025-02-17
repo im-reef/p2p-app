@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload to IPFS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@helia/core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/unixfs-importer"></script>
+</head>
+<body>
+    <div class="wrapperHead">
+        <h1>Upload File</h1>
+        <form id="uploadForm">
+            <input type="file" id="fileInput" accept="*/*" />
+            <button type="submit">Upload</button>
+        </form>
+        <div id="textContainer"></div>
+
+    <div>
+
+    <div class="wrapper" id="p2p">
+        <div>
+            <p>Your Peer ID: <span id="peerId">Loading...</span></p> <!-- peer to peer starts here -->
+        </div>
+    
+        <div>
+            <input type="text" id="remotePeerId" placeholder="Enter Peer ID to connect">
+            <button type="button" onclick="connectToPeer()">Connect</button>
+        </div>
+    
+        <div>
+            <input type="file" id="fileInputP2p">
+            <button type="button" onclick="sendFile()">Send File</button>
+        </div>
+    
+        <div>
+            <p>Connection Status: <span id="status">Not Connected</span></p>
+            <p>Received File: <a id="downloadLink" style="display:none;" download>Download</a></p>
+        </div>
+    
+        <div id="hashContainer"></div> <!-- user owned ipfs file through blockchain -->
+        
+        </div>
+
+    </div>
+
+   
+    
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script type="module" src="/uploadToIPFS.js"></script>
+    <script defer src="p2p.js"></script>
+</body>
+</html>
